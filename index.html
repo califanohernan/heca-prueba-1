@@ -143,186 +143,402 @@
       flex-direction: column;
     }
 
-    /* ── MOCKUP ──────────────────────────────────────────── */
+    /* ── DEVICES MOCKUP ──────────────────────────────────── */
     .hero-mockup {
       flex-shrink: 0;
-    }
-
-    .mock-device {
-      width: 196px;
-      height: 390px;
-      background: #161616;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 34px;
-      padding: 14px;
       position: relative;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        0 40px 80px rgba(0, 0, 0, 0.5),
-        -6px 6px 40px rgba(0, 0, 0, 0.3);
-      transform: rotate(-12deg) translateY(30px) scale(0.97);
-      will-change: transform;
+      width: 320px;
+      height: 340px;
     }
 
-    .mock-notch {
+    /* ─── Laptop ──────────────────────────────────────── */
+    .device-laptop {
       position: absolute;
-      top: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 52px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.07);
-      border-radius: 100px;
+      top: 0;
+      left: 0;
+      will-change: transform;
+      filter:
+        drop-shadow(0 44px 44px rgba(0, 0, 0, 0.5))
+        drop-shadow(-4px 8px 20px rgba(0, 0, 0, 0.3));
     }
 
-    .mock-screen {
-      width: 100%;
-      height: 100%;
-      background: #0e0e0e;
-      border-radius: 24px;
-      padding: 26px 12px 12px;
+    .lp-scene {
+      perspective: 800px;
+      perspective-origin: 50% 30%;
+    }
+
+    .lp-3d {
+      transform-style: preserve-3d;
+      transform: rotateX(22deg) rotateY(-16deg);
+      position: relative;
+      width: 240px;
+      height: 120px;
+    }
+
+    .lp-lid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 158px;
+      transform-origin: center top;
+      transform: rotateX(-105deg);
+      transform-style: preserve-3d;
+    }
+
+    .lp-lid-front {
+      position: absolute;
+      inset: 0;
+      background: #1c1c1e;
+      border-radius: 8px 8px 2px 2px;
+      padding: 9px 9px 6px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.07);
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      overflow: hidden;
+      backface-visibility: hidden;
     }
 
-    .mock-status-bar {
+    .lp-lid-back {
+      position: absolute;
+      inset: 0;
+      background: #1a1a1c;
+      border-radius: 8px 8px 2px 2px;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .lp-cam {
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .lp-screen {
+      width: 100%;
+      flex: 1;
+      background: #080808;
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lp-titlebar {
+      height: 18px;
+      background: #101010;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 2px;
-      margin-bottom: 2px;
+      gap: 7px;
+      padding: 0 7px;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
-    .mock-time {
-      font-size: 8px;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.35);
-      letter-spacing: 0.04em;
-    }
-
-    .mock-icons {
+    .lp-dots {
       display: flex;
       gap: 3px;
       align-items: center;
     }
 
-    .mock-icon-dot {
-      width: 4px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.25);
+    .lp-dots i {
+      display: block;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
-    }
-
-    .mock-section-label {
-      height: 5px;
-      width: 45%;
-      background: rgba(255, 255, 255, 0.07);
-      border-radius: 4px;
-    }
-
-    .mock-card {
-      background: #1c1c1c;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .mock-card-accent {
-      height: 3px;
-      background: var(--color-accent);
-    }
-
-    .mock-card-body {
-      padding: 10px 10px 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .mock-card-line {
-      height: 5px;
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 3px;
+      font-style: normal;
     }
 
-    .mock-card-line.w-55 { width: 55%; }
-    .mock-card-line.w-80 { width: 80%; }
-
-    .mock-card-chip {
-      margin-top: 2px;
-      height: 16px;
-      width: 44px;
-      background: rgba(232, 255, 71, 0.12);
-      border: 1px solid rgba(232, 255, 71, 0.28);
+    .lp-url {
+      flex: 1;
+      height: 7px;
+      max-width: 90px;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 100px;
+      margin: 0 auto;
     }
 
-    .mock-rows {
+    .lp-body {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .lp-sidebar {
+      width: 32px;
+      background: rgba(255, 255, 255, 0.015);
+      border-right: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 9px 6px;
       display: flex;
       flex-direction: column;
       gap: 6px;
-      flex: 1;
-    }
-
-    .mock-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 8px;
-      background: rgba(255, 255, 255, 0.025);
-      border-radius: 8px;
-    }
-
-    .mock-row-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 7px;
-      background: rgba(255, 255, 255, 0.06);
       flex-shrink: 0;
     }
 
-    .mock-row-lines {
+    .lp-nav {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+    }
+
+    .lp-nav.on { background: rgba(232, 255, 71, 0.55); }
+
+    .lp-content {
       flex: 1;
+      padding: 9px 9px 7px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      overflow: hidden;
+    }
+
+    .lp-bar {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 2px;
+    }
+
+    .lp-bar.hi  { height: 5px; background: rgba(255, 255, 255, 0.16); }
+    .lp-bar.w85 { width: 85%; }
+    .lp-bar.w72 { width: 72%; }
+    .lp-bar.w65 { width: 65%; }
+    .lp-bar.w50 { width: 50%; }
+    .lp-bar.w40 { width: 40%; }
+
+    .lp-block {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
 
-    .mock-row-line {
+    .lp-cards {
+      display: flex;
+      gap: 5px;
+    }
+
+    .lp-card {
+      flex: 1;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 4px;
+    }
+
+    .lp-card.accent {
+      border-color: rgba(232, 255, 71, 0.18);
+      background: rgba(232, 255, 71, 0.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lp-card.accent::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--color-accent);
+      opacity: 0.6;
+    }
+
+    .lp-hinge {
+      position: absolute;
+      top: 0;
+      left: 5%;
+      width: 90%;
+      height: 3px;
+      background: #111;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .lp-base {
+      position: absolute;
+      inset: 0;
+      background: #1c1c1e;
+      border-radius: 2px 2px 8px 8px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 20px 22px;
+      gap: 7px;
+      transform-style: preserve-3d;
+    }
+
+    .lp-kb {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .lp-kbrow {
       height: 4px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.055);
+      border-radius: 2px;
+    }
+
+    .lp-kbrow.narrow {
+      width: 52%;
+      margin: 0 auto;
+    }
+
+    .lp-trackpad {
+      width: 60px;
+      height: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: 3px;
     }
 
-    .mock-row-line.w-80 { width: 80%; }
-    .mock-row-line.w-60 { width: 60%; }
-    .mock-row-line.w-70 { width: 70%; }
-    .mock-row-line.w-45 { width: 45%; }
-    .mock-row-line.w-50 { width: 50%; }
-    .mock-row-line.w-40 { width: 40%; }
-
-    .mock-bottom-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      padding-top: 2px;
+    .lp-base-edge {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 9px;
+      background: #141416;
+      transform-origin: top center;
+      transform: rotateX(90deg);
+      border-radius: 0 0 4px 4px;
     }
 
-    .mock-nav-item {
-      width: 5px;
-      height: 5px;
+    /* ─── Smartphone ──────────────────────────────────── */
+    .device-phone {
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+      will-change: transform;
+      transform: rotate(5deg);
+      filter:
+        drop-shadow(0 28px 28px rgba(0, 0, 0, 0.5))
+        drop-shadow(4px 4px 14px rgba(0, 0, 0, 0.3));
+    }
+
+    .ph-body {
+      width: 88px;
+      height: 178px;
+      background: #1c1c1e;
+      border-radius: 20px;
+      padding: 10px 7px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.07);
+      position: relative;
+    }
+
+    .ph-pill {
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 100px;
+    }
+
+    .ph-screen {
+      width: 100%;
+      height: 100%;
+      background: #080808;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 7px 9px;
+      gap: 6px;
+    }
+
+    .ph-bar {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 2px;
+    }
+
+    .ph-bar.hi  { height: 5px; background: rgba(255, 255, 255, 0.14); }
+    .ph-bar.w65 { width: 65%; }
+    .ph-bar.w40 { width: 40%; }
+
+    .ph-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 7px;
+      flex-shrink: 0;
+      height: 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ph-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--color-accent);
+      opacity: 0.6;
+    }
+
+    .ph-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.025);
+      border-radius: 5px;
+      padding: 5px;
+      flex-shrink: 0;
+    }
+
+    .ph-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      flex-shrink: 0;
+    }
+
+    .ph-row-lines {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .ph-row-line {
+      height: 3px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 2px;
+    }
+
+    .ph-row-line.w75 { width: 75%; }
+    .ph-row-line.w50 { width: 50%; }
+
+    .ph-nav {
+      margin-top: auto;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .ph-dot {
+      width: 4px;
+      height: 4px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.12);
     }
 
-    .mock-nav-item.active {
-      width: 18px;
-      height: 5px;
+    .ph-dot.on {
+      width: 14px;
       border-radius: 100px;
-      background: var(--color-accent);
+      background: rgba(232, 255, 71, 0.7);
     }
 
     .hero-tag {
@@ -340,13 +556,13 @@
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-size: clamp(2.75rem, 7vw, 5.8rem);
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.03em;
       max-width: 16ch;
       margin-bottom: 2rem;
-      min-height: calc(clamp(3rem, 8vw, 6.5rem) * 1.05 * 2);
+      min-height: calc(clamp(2.75rem, 7vw, 5.8rem) * 1.05 * 2);
     }
 
     .hero h1 em {
@@ -456,7 +672,7 @@
     }
 
     .service-card:hover {
-      background: var(--color-surface);
+      background: #222222;
     }
 
     .service-number {
@@ -561,7 +777,7 @@
     }
 
     .project-item:hover {
-      background: var(--color-surface);
+      background: #222222;
     }
 
     .project-item:hover .project-arrow {
@@ -867,57 +1083,94 @@
         </div>
 
         <div class="hero-mockup" aria-hidden="true">
-          <div class="mock-device">
-            <div class="mock-notch"></div>
-            <div class="mock-screen">
-              <div class="mock-status-bar">
-                <span class="mock-time">9:41</span>
-                <div class="mock-icons">
-                  <div class="mock-icon-dot"></div>
-                  <div class="mock-icon-dot"></div>
-                  <div class="mock-icon-dot"></div>
-                </div>
-              </div>
-              <div class="mock-section-label"></div>
-              <div class="mock-card">
-                <div class="mock-card-accent"></div>
-                <div class="mock-card-body">
-                  <div class="mock-card-line w-55"></div>
-                  <div class="mock-card-line w-80"></div>
-                  <div class="mock-card-chip"></div>
-                </div>
-              </div>
-              <div class="mock-rows">
-                <div class="mock-row">
-                  <div class="mock-row-icon"></div>
-                  <div class="mock-row-lines">
-                    <div class="mock-row-line w-80"></div>
-                    <div class="mock-row-line w-50"></div>
+
+          <!-- Laptop -->
+          <div class="device-laptop">
+            <div class="lp-scene">
+              <div class="lp-3d">
+
+                <div class="lp-lid">
+                  <div class="lp-lid-front">
+                    <div class="lp-cam"></div>
+                    <div class="lp-screen">
+                      <div class="lp-titlebar">
+                        <div class="lp-dots"><i></i><i></i><i></i></div>
+                        <div class="lp-url"></div>
+                      </div>
+                      <div class="lp-body">
+                        <div class="lp-sidebar">
+                          <div class="lp-nav on"></div>
+                          <div class="lp-nav"></div>
+                          <div class="lp-nav"></div>
+                          <div class="lp-nav"></div>
+                        </div>
+                        <div class="lp-content">
+                          <div class="lp-block">
+                            <div class="lp-bar hi w65"></div>
+                            <div class="lp-bar w40"></div>
+                          </div>
+                          <div class="lp-cards">
+                            <div class="lp-card accent"></div>
+                            <div class="lp-card"></div>
+                          </div>
+                          <div class="lp-bar w85"></div>
+                          <div class="lp-bar w72"></div>
+                          <div class="lp-bar w50"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <div class="lp-lid-back"></div>
                 </div>
-                <div class="mock-row">
-                  <div class="mock-row-icon"></div>
-                  <div class="mock-row-lines">
-                    <div class="mock-row-line w-60"></div>
-                    <div class="mock-row-line w-40"></div>
+
+                <div class="lp-hinge"></div>
+
+                <div class="lp-base">
+                  <div class="lp-kb">
+                    <div class="lp-kbrow"></div>
+                    <div class="lp-kbrow"></div>
+                    <div class="lp-kbrow"></div>
+                    <div class="lp-kbrow narrow"></div>
                   </div>
+                  <div class="lp-trackpad"></div>
+                  <div class="lp-base-edge"></div>
                 </div>
-                <div class="mock-row">
-                  <div class="mock-row-icon"></div>
-                  <div class="mock-row-lines">
-                    <div class="mock-row-line w-70"></div>
-                    <div class="mock-row-line w-45"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mock-bottom-nav">
-                <div class="mock-nav-item active"></div>
-                <div class="mock-nav-item"></div>
-                <div class="mock-nav-item"></div>
-                <div class="mock-nav-item"></div>
+
               </div>
             </div>
           </div>
+
+          <!-- Smartphone -->
+          <div class="device-phone">
+            <div class="ph-body">
+              <div class="ph-pill"></div>
+              <div class="ph-screen">
+                <div class="ph-bar hi w65"></div>
+                <div class="ph-bar w40"></div>
+                <div class="ph-card"></div>
+                <div class="ph-row">
+                  <div class="ph-icon"></div>
+                  <div class="ph-row-lines">
+                    <div class="ph-row-line w75"></div>
+                    <div class="ph-row-line w50"></div>
+                  </div>
+                </div>
+                <div class="ph-row">
+                  <div class="ph-icon"></div>
+                  <div class="ph-row-lines">
+                    <div class="ph-row-line w75"></div>
+                    <div class="ph-row-line w50"></div>
+                  </div>
+                </div>
+                <div class="ph-nav">
+                  <div class="ph-dot on"></div>
+                  <div class="ph-dot"></div>
+                  <div class="ph-dot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -1101,7 +1354,7 @@
         'footer-copy':    '© 2026 HECA. Todos los derechos reservados.',
         phrases: [
           { text: "Diseño que \ncomunica,",      accent: 6  },
-          { text: "Experiencias que \nconectan.", accent: 12 }
+          { text: "Experiencias \nque conectan.", accent: 12 }
         ]
       },
       en: {
@@ -1232,8 +1485,9 @@
     tick();
 
     /* ── PARALLAX GRILLA + ANIMACIÓN MOCKUP ──────────────── */
-    const heroGrid     = document.querySelector('.hero-grid');
-    const mockupDevice = document.querySelector('.mock-device');
+    const heroGrid  = document.querySelector('.hero-grid');
+    const devLaptop = document.querySelector('.device-laptop');
+    const devPhone  = document.querySelector('.device-phone');
     let ticking = false;
 
     function updateScroll() {
@@ -1242,13 +1496,10 @@
       // Parallax grilla
       heroGrid.style.transform = `translateY(${y * 0.25}px)`;
 
-      // Mockup: de rotado a recto al scrollear
-      const progress  = Math.min(1, y / 380);
-      const rotate    = -12 * (1 - progress);
-      const translateY = 30 * (1 - progress);
-      const scale     = 0.97 + 0.03 * progress;
-      mockupDevice.style.transform =
-        `rotate(${rotate}deg) translateY(${translateY}px) scale(${scale})`;
+      // Parallax devices — velocidades distintas crean sensación de profundidad
+      // Laptop más lento (plano de fondo), phone más rápido (primer plano)
+      devLaptop.style.transform = `translateY(${y * 0.06}px)`;
+      devPhone.style.transform  = `rotate(5deg) translateY(${y * 0.18}px)`;
 
       ticking = false;
     }
